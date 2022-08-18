@@ -4,7 +4,8 @@ import store from "./Store";
 function AddNewItem({ categories }) {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [price, setPrice] = useState();
+  const [price, setPrice] = useState("");
+  const [imgUrl, setImgUrl] = useState("");
   let selectedCategories = [];
   function checkSelectedCategories(list, categoryName) {
     return list.filter((c) => c.name === categoryName)[0] ? true : false;
@@ -27,7 +28,7 @@ function AddNewItem({ categories }) {
         "addNewGood",
         gql(
           "http://shop-roles.node.ed.asmer.org.ua/graphql",
-          `mutation changeDetails($good:GoodInput){
+          `mutation addGood($good:GoodInput){
               GoodUpsert(good:$good){
               name, price, categories{name}
               }
@@ -45,10 +46,25 @@ function AddNewItem({ categories }) {
         )
       )
     );
+    store.dispatch(
+      actionPromise(
+        "addImage",
+        gql(
+          "http://shop-roles.node.ed.asmer.org.ua",null,
+          {imgUrl}
+        )
+      )
+    );
   }
   return (
     <div className="edit__good">
-      <form onSubmit={handleSubmit} className="main__form">
+      <form
+        onSubmit={handleSubmit}
+        className="main__form"
+        action="/upload"
+        method="post"
+        encType="multipart/form-data"
+      >
         <div className="main__form__input">
           <label>Name</label>
           <input
@@ -108,6 +124,12 @@ function AddNewItem({ categories }) {
               </div>
             );
           })}
+          <input
+            type="file"
+            name="photo"
+            onChange={(e) => {
+                setImgUrl(e.target.files[0])}}
+          />
         <input
           disabled={name.length >= 1 ? false : true}
           type="submit"

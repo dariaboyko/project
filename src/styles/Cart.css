@@ -1,7 +1,7 @@
 .cart--window{
     position: absolute;
     z-index: 3;
-    width: 434px;
+    width: 500px;
     height: fit-content;
     right: 20px;
     top: 60px;
@@ -63,4 +63,76 @@
     font-size: 22px;
     line-height: 26px;
     border: 0;
+    margin: 10px 0 0 0 ;
+}
+.cartSubTitle{
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #767272;
+  border-bottom: 1px solid rgba(196, 196, 196, 1);
+  padding: 0 0 10px 0;
+}
+.cartItem{
+  display: flex;
+  flex-direction: row;
+  height: 130px;
+  border-bottom: 1px solid rgba(196, 196, 196, 1);
+  position: relative;
+}
+.cartItemInfo{
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 14px;
+  color: #000000;
+  margin: 40px 40px 0 6px;
+}
+.cartItemPrice{
+  width: 45px;
+  height: 19px;
+  background: #EAF6FF;
+  border-radius: 3px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 19px;
+  color: #4191FF;
+  margin: 10px 0 0 0;
+}
+.cartImg{
+  max-height:100px ;
+  margin:10px 0 0 26px ;
+  width: 100px;
+}
+.cartImg img{
+    max-height: 100px;
+    max-width: 100px;
+}
+.cartItemAmount{
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  color: #4191FF;
+  position: absolute;
+  top: 50px;
+  right: 100px;
+}
+.deleteCartItem{
+  width: 20px;
+  height: 20px; 
+  background: rgba(248, 50, 69, 0.15);
+  border-radius: 2px;
+  border: 0;
+  position: absolute;
+  top: 50px;
+  right: 40px;
+  line-height: 19px;
+  color: #F83245
 }

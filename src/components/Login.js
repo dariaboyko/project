@@ -1,12 +1,12 @@
 import "../styles/LogInPage.css";
 import Eye from "./Eye";
-import { useState ,useEffect} from "react";
+import { useState } from "react";
 import actionFullLogin from "./ActionFullLogin";
 import { connect } from "react-redux";
 import store from "./Store";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 function LoginForm({setToken}) {
-
+let navigate = useNavigate();
   function LoginForms({onLogin}) {
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("");
@@ -17,6 +17,7 @@ function LoginForm({setToken}) {
       store.dispatch(actionFullLogin(login, password))
       setTimeout(() => {
         setToken(localStorage.authToken)
+        localStorage.authToken&&navigate("/");
       }, 1000);
       };
     

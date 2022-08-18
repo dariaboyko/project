@@ -117,14 +117,12 @@ function AdminEditItem({ item, categories }) {
                       )
                     ) {
                       selectedCategories.push(category);
-                      console.log(selectedCategories);
                       e.target.checked = true;
                     } else {
                       {
                         selectedCategories = selectedCategories.filter((i) => {
                           return i.name !== category.name;
                         });
-                        console.log(selectedCategories);
                         e.target.checked = false;
                       }
                     }

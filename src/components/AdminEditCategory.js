@@ -4,6 +4,8 @@ import AdminCategoriesMenu from "./AdminCategoriesMenu";
 import { connect } from "react-redux";
  import { useLocation } from "react-router-dom";
 import AdminCategoryInfo from "./AdminCategoryInfo";
+
+
 function AdminEditCategory() {
     let gql = (url, query, variables) =>
       fetch(url, {
@@ -20,7 +22,7 @@ function AdminEditCategory() {
       "categories",
       gql(
         "http://shop-roles.node.ed.asmer.org.ua/graphql",
-        `query orders($q:String){
+        `query categories($q:String){
             CategoryFind(query:$q){
                 _id, name, createdAt, goods{_id, name, description, price, categories{_id, name}},owner{login},parent{name}
             }

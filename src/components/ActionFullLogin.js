@@ -1,6 +1,4 @@
-
 import actionPromise from "./ActionPromise";
-import store from "./Store";
 const getGQL = url =>
     (query, variables = {}) =>
         fetch(url, {
@@ -31,7 +29,7 @@ const actionAuthLogin = (token) =>
         const newState = getState().auth
         if (newState !== oldState){
             localStorage.authToken = token
-        }        
+        }     
     }
 
 const actionFullLogin = (login, password) =>
@@ -44,12 +42,4 @@ const actionFullLogin = (login, password) =>
         const result     = await dispatch(action)
         dispatch(actionAuthLogin(result))
     }
-
-    if (localStorage.authToken){
-        store.dispatch(actionAuthLogin(localStorage.authToken))
-    }
-
-if (localStorage.authToken){
-store.dispatch(actionAuthLogin(localStorage.authToken))
-}
 export default actionFullLogin;

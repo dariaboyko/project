@@ -17,3 +17,14 @@
 .categories--list__item:hover{
     color: #5ECE7B;
 }
+table {
+  width: 100%;
+}
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 8px;
+}
