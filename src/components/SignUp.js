@@ -94,19 +94,32 @@ function SignUp() {
               onChange={(event) => setPasswordrepeat(event.target.value)}
               type={passwordShown ? "text" : "password"}
             />
-            {password!==passwordrepeat && passwordrepeat.length >= 1 &&(
-              <span className="main__form__warning">
-                passwords don`t match
-              </span>
+            {password !== passwordrepeat && passwordrepeat.length >= 1 && (
+              <span className="main__form__warning">passwords don`t match</span>
             )}
           </div>
           <input
-            disabled={login.length >= 1 && password.length >= 6 && password===passwordrepeat? false : true}
+            disabled={
+              login.length >= 1 &&
+              password.length >= 6 &&
+              password === passwordrepeat
+                ? false
+                : true
+            }
             type="submit"
             value="Sign up"
             className="main__form__submit"
           />
-           {SignedUp?<><SignedUp/><Link to="/">Sign in</Link></>:<p>Already have an account? <Link to="/">Sign in</Link></p>}
+          {SignedUp ? (
+            <>
+              <SignedUp />
+              <Link to="/profile">Sign in</Link>
+            </>
+          ) : (
+            <p>
+              Already have an account? <Link to="/profile">Sign in</Link>
+            </p>
+          )}
         </form>
       </section>
     );

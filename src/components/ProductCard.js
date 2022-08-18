@@ -6,18 +6,17 @@ const location = useLocation();
        <div className={classes.productWrapper}>
          <Link to={location.pathname + "/" + data._id}>
            <div className={classes.productImgWrapper}>
+             {data.images&&
              <img
                src={
                  "http://shop-roles.node.ed.asmer.org.ua/" + data.images[0].url
                }
                alt={data.name}
                className={classes.productImg}
-             />
+             />}
            </div>
            <div className={classes.productName}>{data.name}</div>
-           <div className={classes.price}>
-             {data.price} $
-           </div>
+           <div className={classes.price}>{data.price} $</div>
          </Link>
        </div>
      );

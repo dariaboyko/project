@@ -1,4 +1,4 @@
-import {createBrowserHistory} from "history";
+
 import actionPromise from "./ActionPromise";
 import store from "./Store";
 const getGQL = url =>
@@ -34,11 +34,6 @@ const actionAuthLogin = (token) =>
         }        
     }
 
-const actionAuthLogout = () => 
-    (dispatch) => {        
-        dispatch({type: 'AUTH_LOGOUT'})
-        localStorage.removeItem('authToken')
-    }
 const actionFullLogin = (login, password) =>
     async (dispatch) => {
         const gqlQuery = `query log($login:String, $password:String){

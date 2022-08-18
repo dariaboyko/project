@@ -17,7 +17,7 @@ function LoginForm({setToken}) {
       store.dispatch(actionFullLogin(login, password))
       setTimeout(() => {
         setToken(localStorage.authToken)
-      }, 3000);
+      }, 1000);
       };
     
     return (

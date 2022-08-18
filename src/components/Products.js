@@ -22,7 +22,7 @@ function Products({ data }) {
   return (
     <section>
       <div className={classes.products}>
-        {data&&products.map((product) => {return <ProductCard data={product} key={product._id} />})}
+        {data&&products.map((product) => {return <ProductCard data={product} key={product._id+Math.random()} />})}
       </div>
     </section>
   );

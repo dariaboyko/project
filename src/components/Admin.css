@@ -1,0 +1,19 @@
+.categories--list{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-decoration: none;
+    color: black;
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 19px;
+    text-align: center;
+    padding: 50px;
+}
+.categories--list__item{
+    color: inherit;
+}
+.categories--list__item:hover{
+    color: #5ECE7B;
+}

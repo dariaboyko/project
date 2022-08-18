@@ -2,11 +2,12 @@ import { NavLink } from "react-router-dom";
 import "./NavigationCategory.css";
 import Cart from "./Cart";
 import Profile from "./Profile";
-function NavigationCategory({ valueCurrency }) {
+import Logout from "./Logout";
+function NavigationCategory() {
   return (
     <nav className="navigation">
       <ul className="navigation--list">
-      <li>
+        <li>
           <NavLink
             to="/"
             className={({ isActive }) =>
@@ -56,8 +57,9 @@ function NavigationCategory({ valueCurrency }) {
         </li>
       </ul>
       <div className="navigation--info">
-        <Cart/>
-        <Profile/>
+        <Cart />
+        <Profile />
+        <Logout/>
       </div>
     </nav>
   );
