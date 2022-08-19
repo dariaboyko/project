@@ -1,10 +1,10 @@
 import actionPromise from "./ActionPromise";
 import store from "./Store";
-import {useState, useEffect} from "react";
+import {useState} from "react";
 import gotUserFromToken from "./GotUserFromToken";
 import { connect } from "react-redux";
 function ProfileInfo() {
-  const id = gotUserFromToken(localStorage.authToken).sub.acl[0];
+  const id = gotUserFromToken(localStorage.authToken).sub.id;
 
  let gql = (url, query, variables) =>
    fetch(url, {
@@ -108,7 +108,6 @@ function ProfileInfo() {
                     {
                       user: {
                         login: login,
-                        _id: id,
                       },
                     }
                   )

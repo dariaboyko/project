@@ -47,7 +47,7 @@ let gql = (url, query, variables) =>
                 orderGoods: cart.map(({ good, amount }) => {
                   return {
                     count: amount,
-                    good: { _id: good._id, name: good.name },
+                    good: { _id: good._id},
                   };
                 }),
               },

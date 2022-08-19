@@ -43,7 +43,7 @@ function AdminOrdersTable({ orders }) {
                 <td>
                   <button
                     onClick={() => {
-                      console.log(order._id)
+                      console.log(order.orderGoods);
                       store.dispatch(
                         actionPromise(
                           "delete",
@@ -51,12 +51,13 @@ function AdminOrdersTable({ orders }) {
                             "http://shop-roles.node.ed.asmer.org.ua/graphql",
                             `mutation delete($order: OrderInput) {
                               OrderDelete(order: $order) {
-                                _id
+                                owner{login}
                               }
                             }`,
                             {
                               order: {
                                 _id: order._id,
+                                orderGoods: order.orderGoods.map((g)=>{return { _id: g._id, count: g.count, good: {_id:g.good._id}};}),
                               },
                             }
                           )
