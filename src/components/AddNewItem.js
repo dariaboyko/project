@@ -46,15 +46,7 @@ function AddNewItem({ categories }) {
         )
       )
     );
-    store.dispatch(
-      actionPromise(
-        "addImage",
-        gql(
-          "http://shop-roles.node.ed.asmer.org.ua",null,
-          {imgUrl}
-        )
-      )
-    );
+    window.location.reload();
   }
   return (
     <div className="edit__good">
@@ -133,7 +125,7 @@ function AddNewItem({ categories }) {
         <input
           disabled={name.length >= 1 ? false : true}
           type="submit"
-          value="Save changes"
+          value="Add good"
           className="main__form__submit"
         />
       </form>

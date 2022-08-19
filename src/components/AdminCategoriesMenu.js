@@ -37,6 +37,7 @@
          )
        )
      );
+     window.location.reload();
    }
    return (
      <>

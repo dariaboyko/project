@@ -21,7 +21,6 @@ function AdminEditItem({ item, categories }) {
       }).then((res) => console.log(res.json()));
 
     function handleSubmit(event) {
-        console.log(item._id);
       event.preventDefault();
       store.dispatch(
         actionPromise(

@@ -125,7 +125,7 @@ function AdminCategoryInfo({ categories }) {
               key={"route" + category._id}
             />
           );
-        }):<>Wait...</>}
+        }):<></>}
     </Routes>
   );
 }

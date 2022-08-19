@@ -1,8 +1,20 @@
 import { Link, useLocation } from "react-router-dom";
 import AdminOrderInfo from "./AdminOrderInfo";
+import actionPromise from "./ActionPromise";
+import store from "./Store";
 function AdminOrdersTable({ orders }) {
   const location = useLocation()
-  return orders ? (
+  let gql = (url, query, variables) =>
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + localStorage.authToken,
+        Accept: "application/json",
+      },
+      body: JSON.stringify({ query, variables }),
+    }).then((res) => console.log(res.json()));
+  return orders && orders.data.OrderFind ? (
     <>
       <table>
         <tbody>
@@ -11,6 +23,7 @@ function AdminOrdersTable({ orders }) {
             <th>owner</th>
             <th>goods amount</th>
             <th>order total</th>
+            <th>delete</th>
           </tr>
           {orders.data.OrderFind.map((order) => {
             return (
@@ -19,7 +32,7 @@ function AdminOrdersTable({ orders }) {
                 <td>{order.owner ? order.owner.login : "----"}</td>
                 <td>
                   {order.orderGoods.length > 0 ? (
-                    <Link to={location.pathname + "/"+order._id}>
+                    <Link to={location.pathname + "/" + order._id}>
                       {order.orderGoods.length}
                     </Link>
                   ) : (
@@ -27,6 +40,33 @@ function AdminOrdersTable({ orders }) {
                   )}
                 </td>
                 <td>{order.total}</td>
+                <td>
+                  <button
+                    onClick={() => {
+                      console.log(order._id)
+                      store.dispatch(
+                        actionPromise(
+                          "delete",
+                          gql(
+                            "http://shop-roles.node.ed.asmer.org.ua/graphql",
+                            `mutation delete($order: OrderInput) {
+                              OrderDelete(order: $order) {
+                                _id
+                              }
+                            }`,
+                            {
+                              order: {
+                                _id: order._id,
+                              },
+                            }
+                          )
+                        )
+                      );
+                    }}
+                  >
+                    X
+                  </button>
+                </td>
               </tr>
             );
           })}

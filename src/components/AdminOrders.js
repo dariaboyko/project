@@ -23,13 +23,13 @@ function AdminOrders() {
         "http://shop-roles.node.ed.asmer.org.ua/graphql",
         `query ordersFind($q: String) {
             OrderFind(query: $q) {
-                orderGoods{good {
+                orderGoods{_id,good {
                 _id
                 createdAt
                 name
                 description
                 price
-                }},owner {
+                },count},owner {
                 _id
                 createdAt
                 login
