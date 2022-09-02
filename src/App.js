@@ -4,7 +4,7 @@ import SamsungProducts from "./components/SamsungProducts";
 import IphoneProducts from "./components/IphoneProducts";
 import AllProducts from './components/AllProducts';
 import ProfileInfo from './components/ProfileInfo';
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./components/Store";
 import LoginForm from './components/Login';
